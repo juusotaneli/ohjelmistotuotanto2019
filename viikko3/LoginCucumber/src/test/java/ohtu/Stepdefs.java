@@ -22,21 +22,15 @@ public class Stepdefs {
     public void setup(){
         userDao = new InMemoryUserDao();
         auth = new AuthenticationService(userDao);
-        inputLines = new ArrayList<>();      
+        inputLines = new ArrayList<>();  
+        
+        auth.createUser("esa", "esaesa");
+        
     }
     
     @Given("^command login is selected$")
     public void commandLoginSelected() throws Throwable {
         inputLines.add("login");
-    }
-    @Given("^command new is selected$")
-    public void commandNewSelected() throws Throwable {
-        inputLines.add("new");
-    }
-    @Given("user {string} with password {string} is created")
-    public void newUserIsCreated(String string, String string1) throws Throwable{
-        commandNewSelected();
-        usernameAndPasswordAreEntered(string, string1);
     }
 
     @When("username {string} and password {string} are entered")
@@ -47,6 +41,7 @@ public class Stepdefs {
        app = new App(io, auth);
        app.run();
     }    
+    
     @Then("system will respond with {string}")
     public void systemWillRespondWith(String expectedOutput) {
         assertTrue(io.getPrints().contains(expectedOutput));
