@@ -6,6 +6,7 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import java.util.ArrayList;
 import java.util.List;
+
 import static org.junit.Assert.*;
 import ohtu.io.*;
 import ohtu.data_access.*;
@@ -23,16 +24,17 @@ public class Stepdefs {
         userDao = new InMemoryUserDao();
         auth = new AuthenticationService(userDao);
         inputLines = new ArrayList<>();  
-        
-        auth.createUser("esa", "esaesa");
-        
+                
     }
-    
     @Given("^command login is selected$")
     public void commandLoginSelected() throws Throwable {
         inputLines.add("login");
     }
-
+    @Given("^command new is selected$")
+    public void commandNewSelected() throws Throwable {
+        inputLines.add("new");
+        
+    }
     @When("username {string} and password {string} are entered")
     public void usernameAndPasswordAreEntered(String username, String password) {
        inputLines.add(username);
@@ -40,11 +42,16 @@ public class Stepdefs {
        io = new StubIO(inputLines); 
        app = new App(io, auth);
        app.run();
-    }    
+    }
     
     @Then("system will respond with {string}")
     public void systemWillRespondWith(String expectedOutput) {
         assertTrue(io.getPrints().contains(expectedOutput));
-    }    
+    }
+    @Given("user {string} with password {string} is created") 
+    public void ua (String username, String password) {
+        auth.createUser(username, password);
 
+    }
+   
 }
