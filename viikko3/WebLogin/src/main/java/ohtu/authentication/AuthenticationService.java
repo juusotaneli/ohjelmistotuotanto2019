@@ -29,16 +29,57 @@ public class AuthenticationService {
         if (userDao.findByName(username) != null) {
             status.addError("username is already taken");
         }
-
         if (username.length()<3 ) {
             status.addError("username should have at least 3 characters");
         }
-
+        if (!userNameOnlyLetters(username) ) {
+            status.addError("username should consist of letters only (a-z)");
+        }
+        if (password.length()<8) {
+            status.addError("password should have at least 8 characters including one special character");
+        }
+        if (!password.equals(passwordConfirmation)) {
+            status.addError("passwords dont match");
+        }
+        if (!passwordNotOnlyLetters(password)) {
+            status.addError("password not strong enough!");
+        }
         if (status.isOk()) {
             userDao.add(new User(username, password));
         }
         
         return status;
+    }
+    private boolean passwordNotOnlyLetters(String password) {
+        boolean foundLetters = false;
+        boolean foundDigits = false;
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isDigit(password.charAt(i))) {
+                foundDigits = true;
+                break;
+            }
+        }
+        for (int i = 0; i < password.length(); i++) {
+            if (Character.isLetter(password.charAt(i))) {
+                foundLetters = true;
+                break;
+            }
+        }
+        if (foundLetters == true && foundDigits == true) {
+            return true;
+        }
+        return false;
+    
+
+    }
+    private boolean userNameOnlyLetters (String username) {
+        for (int i = 0; i < username.length(); i++) {
+            if (!Character.isLetter(username.charAt(i))) {
+                return false;
+            }
+        }
+        return true;
+
     }
 
 }
