@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ohtu.verkkokauppa.KauppaTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2019-11-23T13:32:38" hostname="Juusos-MacBook-Pro-2.local" time="0.497">
+<testsuite name="ohtu.verkkokauppa.KauppaTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2019-11-23T14:17:53" hostname="Juusos-MacBook-Pro-2.local" time="1.111">
   <properties/>
-  <testcase name="lisataanKoriinKaksiSamaaTuotetta" classname="ohtu.verkkokauppa.KauppaTest" time="0.488"/>
-  <testcase name="lisataanKoriinKaksiEriTuotetta" classname="ohtu.verkkokauppa.KauppaTest" time="0.002"/>
-  <testcase name="lisataanKoriinKaksiSamaaTuotettaJoistaToinenOnLoppuVarastosta" classname="ohtu.verkkokauppa.KauppaTest" time="0.001"/>
-  <testcase name="ostoksenPaaytyttyaPankinMetodiaTilisiirtoKutsutaan" classname="ohtu.verkkokauppa.KauppaTest" time="0.002"/>
-  <testcase name="lisataanKoriinYksiTuote" classname="ohtu.verkkokauppa.KauppaTest" time="0.001"/>
+  <testcase name="lisataanKoriinKaksiSamaaTuotetta" classname="ohtu.verkkokauppa.KauppaTest" time="1.083"/>
+  <testcase name="lisataanKoriinKaksiEriTuotetta" classname="ohtu.verkkokauppa.KauppaTest" time="0.006"/>
+  <testcase name="lisataanKoriinKaksiSamaaTuotettaJoistaToinenOnLoppuVarastosta" classname="ohtu.verkkokauppa.KauppaTest" time="0.004"/>
+  <testcase name="ostoksenPaaytyttyaPankinMetodiaTilisiirtoKutsutaan" classname="ohtu.verkkokauppa.KauppaTest" time="0.004"/>
+  <testcase name="jokainenMaksuTapahtumaSaaUudenViitteen" classname="ohtu.verkkokauppa.KauppaTest" time="0.003"/>
+  <testcase name="lisataanKoriinYksiTuote" classname="ohtu.verkkokauppa.KauppaTest" time="0.002"/>
+  <testcase name="poistetaanKoristaYksiJoLisättyTuote" classname="ohtu.verkkokauppa.KauppaTest" time="0.004"/>
+  <testcase name="aloitaAsiointiMetodiNollaaEdellisenOstoksenTiedot" classname="ohtu.verkkokauppa.KauppaTest" time="0.003"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
