@@ -27,9 +27,15 @@ public class Tapahtumankuuntelija implements EventHandler {
 
     @Override
     public void handle(Event event) {
+        if (event.getTarget() != undo) {
+            Komento komento = komennot.get((Button) event.getTarget());
+            edellinen = komento;
+            komento.suorita();
+        }else{ 
+            edellinen.undo();
+            edellinen = null;
 
-        Komento komento = komennot.get((Button) event.getTarget());
-        komento.suorita();
+        }
 
     }
 

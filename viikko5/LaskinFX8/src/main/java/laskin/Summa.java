@@ -13,4 +13,11 @@ public class Summa extends Komento {
         tuloskentta.setText(Integer.toString(n));
         
     }
+
+    @Override
+    public void undo() {
+        int n = Integer.parseInt(tuloskentta.getText())-Integer.parseInt(syotekentta.getText());
+        tuloskentta.setText(Integer.toString(n));
+
+    }
 }
